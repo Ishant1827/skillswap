@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#2f6b43">
+
+  <title>SkillSwap | Skills are the New Currency</title>
+
+  <!-- Website design -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- =====================================
+       LOGIN / SIGNUP PAGE
+  ====================================== -->
+  <section id="auth" class="auth">
+    <div class="authbox">
+
+      <div class="brand">
+        Skill<span>Swap</span>
+      </div>
+
+      <p class="muted">
+        Exchange skills, connect with students and learn together.
+      </p>
+
+      <!-- Login and signup tabs -->
+      <div class="tabs">
+        <button
+          type="button"
+          id="loginTab"
+          class="btn active"
+          onclick="mode('login')">
+          Login
+        </button>
+
+        <button
+          type="button"
+          id="signupTab"
+          class="btn inactive"
+          onclick="mode('signup')">
+          Create Account
+        </button>
+      </div>
+
+      <!-- Authentication form -->
+      <form id="authForm" onsubmit="authSubmit(event)">
+
+        <div id="nameField" class="hidden">
+          <label for="name">Full Name</label>
+          <input
+            id="name"
+            type="text"
+            autocomplete="name"
+            placeholder="Enter your full name">
+        </div>
+
+        <label for="email">Email Address</label>
+        <input
+          id="email"
+          type="email"
+          autocomplete="email"
+          placeholder="you@example.com"
+          required>
+
+        <label for="password">Password</label>
+
+        <div class="passrow">
+          <input
+            id="password"
+            type="password"
+            minlength="6"
+            autocomplete="current-password"
+            placeholder="Minimum 6 characters"
+            required>
+
+          <button type="button" onclick="togglePass()">
+            Show
+          </button>
+        </div>
+
+        <button
+          id="authBtn"
+          class="btn block"
+          type="submit"
+          style="margin-top:20px">
+          Login
+        </button>
+
+        <div
+          id="authMsg"
+          class="msg"
+          role="status"
+          aria-live="polite">
+        </div>
+
+      </form>
+
+      <div class="notice">
+        <strong>Welcome to SkillSwap!</strong>
+        <p>
+          Learn new skills, share your knowledge and grow
+          together with other students.
+        </p>
+      </div>
+
+      <p class="muted" style="text-align:center;margin-top:20px">
+        Skills are the New Currency 🌱
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================
+       MAIN WEBSITE DASHBOARD
+  ====================================== -->
+  <div id="app" class="layout hidden">
+
+    <!-- SIDEBAR NAVIGATION -->
+    <aside class="side">
+
+      <div class="brand" style="font-size:28px">
+        Skill<span>Swap</span>
+      </div>
+
+      <p class="muted">
+        Learn · Share · Grow
+      </p>
+
+      <nav aria-label="Main navigation">
+
+        <button
+          type="button"
+          class="nav active"
+          data-page="dashboard"
+          onclick="page('dashboard')">
+          🏠 Dashboard
+        </button>
+
+        <button
+          type="button"
+          class="nav"
+          data-page="students"
+          onclick="page('students')">
+          👥 Connect Students
+        </button>
+
+        <button
+          type="button"
+          class="nav"
+          data-page="chat"
+          onclick="page('chat')">
+          💬 Live Chat
+        </button>
+
+        <button
+          type="button"
+          class="nav"
+          data-page="quiz"
+          onclick="page('quiz')">
+          🏆 Quiz Competition
+        </button>
+
+        <button
+          type="button"
+          class="nav"
+          data-page="debate"
+          onclick="page('debate')">
+          🎤 Debate Arena
+        </button>
+
+        <button
+          type="button"
+          class="nav"
+          data-page="profile"
+          onclick="page('profile')">
+          👤 My Profile
+        </button>
+
+        <button
+          type="button"
+          class="nav"
+          data-page="team"
+          onclick="page('team')">
+          🤝 Our Team
+        </button>
+
+        <button
+          type="button"
+          class="nav"
+          data-page="ai"
+          onclick="page('ai')">
+          ✨ AI Learning Help
+        </button>
+
+      </nav>
+
+      <div class="notice" style="margin-top:24px">
+        <strong>Keep Learning!</strong>
+        <p class="muted">
+          Every expert was once a beginner.
+        </p>
+      </div>
+
+      <button
+        type="button"
+        class="nav"
+        onclick="logout()"
+        style="margin-top:16px">
+        ↪ Logout
+      </button>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="main">
+
+      <!-- TOP HEADER -->
+      <header class="top">
+
+        <div>
+          <h1 id="pageTitle">Dashboard</h1>
+
+          <p id="welcome" class="muted">
+            Welcome to SkillSwap!
+          </p>
+        </div>
+
+        <div class="userpill" id="userPill">
+          Student
+        </div>
+
+      </header>
+
+
+      <!-- DYNAMIC PAGE CONTENT -->
+      <!-- script.js renders the selected section here -->
+      <section id="content" aria-live="polite">
+
+        <div class="card">
+          <h2>Welcome to SkillSwap 🌱</h2>
+          <p>
+            Teach what you know. Learn what you love.
+          </p>
+        </div>
+
+      </section>
+
+
+      <!-- FOOTER -->
+      <footer style="text-align:center;margin-top:30px">
+        <p class="muted">
+          SkillSwap © 2026 · Skills are the New Currency
+        </p>
+        <p class="muted">
+          Built for collaborative student learning.
+        </p>
+      </footer>
+
+    </main>
+
+  </div>
+
+
+  <!-- =====================================
+       JAVASCRIPT
+  ====================================== -->
+  <script src="script.js"></script>
+
+</body>
+</html>

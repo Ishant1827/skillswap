@@ -1,0 +1,818 @@
+/* =========================================
+   SkillSwap - style.css
+   Theme: Light Green + Yellow
+   ========================================= */
+
+/* 1. GLOBAL VARIABLES */
+
+:root {
+  --green: #2f6b43;
+  --green-dark: #204d30;
+  --green-light: #d9edcf;
+  --light: #edf7e8;
+  --yellow: #f7d85a;
+  --yellow-light: #fff7cf;
+  --ink: #203326;
+  --muted: #66756b;
+  --white: #ffffff;
+  --line: #dce8dc;
+  --red: #c94b4b;
+  --shadow: 0 8px 28px rgba(32, 77, 48, 0.09);
+  --radius: 18px;
+}
+
+/* 2. RESET */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--light);
+  color: var(--ink);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  transition: background 0.2s ease,
+              transform 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--white);
+  color: var(--ink);
+  outline: none;
+  margin: 6px 0 14px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(47, 107, 67, 0.12);
+}
+
+textarea {
+  resize: vertical;
+}
+
+label {
+  display: block;
+  font-weight: 700;
+  margin-top: 12px;
+  color: var(--ink);
+}
+
+small {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  margin: 4px 0 12px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--ink);
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-size: clamp(28px, 4vw, 42px);
+}
+
+h2 {
+  font-size: 25px;
+}
+
+h3 {
+  font-size: 19px;
+}
+
+p {
+  margin-bottom: 12px;
+  color: var(--muted);
+}
+
+a {
+  color: var(--green);
+  text-decoration: none;
+}
+
+/* 3. BUTTONS */
+
+button {
+  border: none;
+  border-radius: 10px;
+  padding: 11px 18px;
+  background: var(--green);
+  color: var(--white);
+  font-weight: 700;
+  margin: 5px 5px 5px 0;
+}
+
+button:hover:not(:disabled) {
+  background: var(--green-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 12px rgba(32, 77, 48, 0.12);
+}
+
+button:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+button.secondary {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+button.secondary:hover:not(:disabled) {
+  background: #edca3c;
+}
+
+/* 4. COMMON HELPERS */
+
+.hidden {
+  display: none !important;
+}
+
+.active {
+  background: var(--yellow) !important;
+  color: var(--ink) !important;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+  min-width: 0;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.grid > * {
+  min-width: 0;
+}
+
+/* 5. LOGIN AND SIGNUP */
+
+.auth {
+  min-height: 100vh;
+  padding: 28px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(circle at top left, #d8edc9, transparent 40%),
+    radial-gradient(circle at bottom right, #fff1a9, transparent 38%),
+    var(--light);
+}
+
+.authbox {
+  width: 100%;
+  max-width: 460px;
+  padding: 36px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  box-shadow: 0 18px 50px rgba(32, 77, 48, 0.13);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.brand-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: var(--yellow);
+  color: var(--green-dark);
+  font-size: 27px;
+  font-weight: 900;
+}
+
+.brand h1 {
+  font-size: 28px;
+  margin: 0;
+}
+
+.brand p {
+  font-size: 13px;
+  margin: 2px 0 0;
+}
+
+.auth-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 5px;
+  border-radius: 12px;
+  background: var(--light);
+  margin: 20px 0;
+}
+
+.auth-tabs button {
+  flex: 1;
+  margin: 0;
+  background: transparent;
+  color: var(--muted);
+}
+
+.authbox form > button,
+.authbox #authBtn {
+  width: 100%;
+  margin: 10px 0 0;
+  padding: 13px;
+}
+
+#authMsg {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+/* 6. MAIN APPLICATION LAYOUT */
+
+#app {
+  min-height: 100vh;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 255px minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.side {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 24px 16px;
+  background: var(--green);
+  color: var(--white);
+}
+
+.side .brand {
+  padding: 0 8px;
+}
+
+.side .brand h1,
+.side .brand p {
+  color: var(--white);
+}
+
+.side .brand-logo {
+  background: var(--yellow);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 25px;
+}
+
+.nav button {
+  width: 100%;
+  margin: 0;
+  padding: 13px 15px;
+  text-align: left;
+  background: transparent;
+  color: #f2f8ef;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.nav button:hover {
+  background: rgba(255, 255, 255, 0.13);
+  box-shadow: none;
+  transform: none;
+}
+
+.nav button.active {
+  background: var(--yellow) !important;
+  color: var(--ink) !important;
+}
+
+.nav .logout-btn {
+  margin-top: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.main {
+  min-width: 0;
+  padding: 28px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.topbar h2 {
+  margin: 0;
+}
+
+.userPill,
+#userPill {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 15px;
+  border-radius: 30px;
+  background: var(--yellow-light);
+  border: 1px solid #f0df8d;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* 7. DASHBOARD CARDS */
+
+.grid .card {
+  margin-bottom: 0;
+}
+
+.grid .card h2 {
+  font-size: 30px;
+  color: var(--green);
+}
+
+.grid .card h3 {
+  font-size: 17px;
+}
+
+.grid .card:first-child {
+  border-top: 4px solid var(--green);
+}
+
+.grid .card:nth-child(2) {
+  border-top: 4px solid var(--yellow);
+}
+
+.grid .card:nth-child(3) {
+  border-top: 4px solid #9acb8a;
+}
+
+.grid .card:nth-child(4) {
+  border-top: 4px solid #e9ca50;
+}
+
+/* 8. STUDENT CARDS */
+
+.students {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.students .card {
+  margin-bottom: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.students .card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(32, 77, 48, 0.12);
+}
+
+.avatar {
+  width: 62px;
+  height: 62px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: var(--yellow);
+  color: var(--green-dark);
+  font-size: 20px;
+  font-weight: 900;
+  margin-bottom: 15px;
+}
+
+.student-card {
+  overflow-wrap: anywhere;
+}
+
+.student-card strong {
+  color: var(--ink);
+}
+
+/* 9. CHAT */
+
+.chat {
+  margin-top: 20px;
+}
+
+.chat-messages {
+  min-height: 150px;
+  max-height: 380px;
+  overflow-y: auto;
+  padding: 15px;
+  margin: 15px 0;
+  background: var(--light);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.message {
+  max-width: 85%;
+  width: fit-content;
+  padding: 12px 15px;
+  margin: 10px 0;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+
+.message p {
+  margin: 5px 0;
+  color: var(--ink);
+  white-space: pre-wrap;
+}
+
+.message small {
+  font-size: 11px;
+}
+
+#chatForm {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+#chatForm input {
+  flex: 1;
+  min-width: 0;
+  margin: 5px 0;
+}
+
+#chatForm button {
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+/* 10. QUIZ */
+
+.quizq {
+  margin-top: 20px;
+}
+
+.quizq h3 {
+  font-size: 22px;
+  margin: 16px 0;
+}
+
+.quiz-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 18px 0;
+}
+
+.quiz-options .option {
+  width: 100%;
+  min-height: 52px;
+  margin: 0;
+  padding: 13px;
+  text-align: left;
+  background: var(--light);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+
+.quiz-options .option:hover:not(:disabled) {
+  background: var(--yellow-light);
+  box-shadow: none;
+}
+
+.quiz-options .option:disabled {
+  opacity: 1;
+}
+
+#quizFeedback {
+  font-weight: 700;
+  margin: 15px 0;
+}
+
+/* 11. DEBATE */
+
+#debateText {
+  min-height: 120px;
+}
+
+.debate-entry {
+  padding: 16px;
+  margin-top: 15px;
+  border-left: 4px solid var(--yellow);
+  border-radius: 8px;
+  background: var(--light);
+  overflow-wrap: anywhere;
+}
+
+/* 12. PROFILE */
+
+#teachSkills,
+#wantSkills {
+  min-height: 150px;
+}
+
+#teachSkills option:checked,
+#wantSkills option:checked {
+  background: var(--green);
+  color: var(--white);
+}
+
+/* 13. TEAM */
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.team-grid .team-card {
+  display: block;
+  text-align: center;
+  padding: 24px;
+  height: auto;
+  overflow: visible;
+}
+
+.team-member-photo {
+  display: block;
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 16px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #f7d85a;
+}
+
+.team-grid .team-card h3 {
+  display: block;
+  margin: 12px 0 8px;
+  color: #203326;
+}
+
+.team-grid .team-card p {
+  display: block;
+  margin: 6px 0;
+  color: #66756b;
+  overflow-wrap: anywhere;
+}
+/* 14. AI HELPER */
+
+#aiAnswer {
+  margin-top: 20px;
+  background: var(--light);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+#aiQuestion {
+  min-height: 90px;
+}
+
+/* 15. REQUESTS */
+
+.request-item {
+  padding: 15px;
+  margin: 12px 0;
+  background: var(--light);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.request-item strong {
+  margin-right: auto;
+}
+
+/* 16. SCROLLBAR */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b5cdb0;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--green);
+}
+
+/* 17. RESPONSIVE TABLETS */
+
+@media (max-width: 1000px) {
+  .layout {
+    grid-template-columns: 210px minmax(0, 1fr);
+  }
+
+  .main {
+    padding: 22px;
+  }
+
+  .side {
+    padding: 20px 12px;
+  }
+
+  .students {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 18. RESPONSIVE MOBILE */
+
+@media (max-width: 700px) {
+  body {
+    font-size: 14px;
+  }
+
+  .layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .side {
+    position: relative;
+    height: auto;
+    overflow: visible;
+    padding: 15px;
+  }
+
+  .side .brand {
+    margin-bottom: 12px;
+  }
+
+  .side .brand-logo {
+    width: 44px;
+    height: 44px;
+  }
+
+  .side .brand h1 {
+    font-size: 23px;
+  }
+
+  .nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 12px;
+  }
+
+  .nav button {
+    width: auto;
+    flex: 1 1 auto;
+    padding: 9px 12px;
+    text-align: center;
+    font-size: 13px;
+  }
+
+  .nav .logout-btn {
+    margin-top: 0;
+  }
+
+  .main {
+    padding: 17px;
+  }
+
+  .topbar {
+    align-items: flex-start;
+  }
+
+  .topbar h2 {
+    font-size: 22px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card {
+    padding: 18px;
+    margin-bottom: 15px;
+    border-radius: 14px;
+  }
+
+  .students {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .quiz-options {
+    grid-template-columns: 1fr;
+  }
+
+  #chatForm {
+    flex-direction: column;
+  }
+
+  #chatForm input,
+  #chatForm button {
+    width: 100%;
+  }
+
+  .authbox {
+    padding: 25px 20px;
+  }
+
+  .brand h1 {
+    font-size: 25px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+}
+
+/* 19. SMALL MOBILE */
+
+@media (max-width: 380px) {
+  .main {
+    padding: 12px;
+  }
+
+  .side {
+    padding: 12px;
+  }
+
+  .nav button {
+    font-size: 12px;
+    padding: 8px 9px;
+  }
+
+  .authbox {
+    padding: 20px 15px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+}
